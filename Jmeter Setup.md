@@ -9,6 +9,25 @@
     2.	Download Binaries → zip
     3.	Extract to: C:\tools\apache-jmeter-5.6.3
 
+---
+## Steps for JMeter start
+ - **cmd setup for jms_exporter for Grafana dashboard to measure**
+ - **GUI mode (first time) to setup test plan**
+ - **non-GUI to pull the test plan**
+---
+
+---
+## cmd setup for jms_exporter for Grafana dashboard to measure
+
+C:\Users\username>set JMETER_OPTS=-javaagent:E:\workspace\spring-jvm-tuning\jvm-tuning\monitoring\jmx_exporter\jmx_prometheus_javaagent.jar=9404:E:\workspace\spring-jvm-tuning\jvm-tuning\monitoring\jmx_exporter\jmeter-jmx-config.yaml
+
+-- Read file in cmd
+  -- jmx_prometheus_javaagent.jar
+  -- jmeter-jmx-config.yaml
+  -- port: 9404
+
+---
+
 ## Start JMeter (GUI mode – first time)
   JMeter GUI mode used to do setup for load testing (prepare load test) and Non-GUI mode use load-test and generate report.
   
