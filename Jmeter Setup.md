@@ -76,7 +76,7 @@ save it
 
 ### ----------------------------------------------------
 
-## Run in Non-GUI
+## Run in Non-GUI (after GUI setup)
    open new CMD (path: E:\workspace\spring-jvm-test\JvmTest\ where want to generate result)
    
 
@@ -91,7 +91,11 @@ save it
 
 **JMeter produced:**
 
-E:\workspace\spring-jvm-test\JvmTest\
+- JMeter 
+     - read the load-test setup from: "E:\workspace\spring-jvm-test\JvmTest\SpringBoot-jvm-test.jmx" 
+     - read the JFR file from: "E:\workspace\spring-jvm-test\JvmTest\results.jtl"
+     - generate report at location: "E:\workspace\spring-jvm-test\JvmTest\report"
+       
 - **results.jtl** → raw test results
 - **report/**
   - content
