@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: jvm-tuning
+
+  docker:
+    compose:
+      stop:
+        command: DOWN
+      file:
+        - jvm-tuning/docker-compose.yml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+        demo.cpu.prime.seconds: true
+        demo.cpu.sort.seconds: true
+        demo.memory.allocate.seconds: true
+        demo.memory.retain.seconds: true

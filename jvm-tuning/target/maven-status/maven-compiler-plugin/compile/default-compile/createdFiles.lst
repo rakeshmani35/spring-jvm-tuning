@@ -1,0 +1,8 @@
+com\example\jvmtuning\service\WorkloadService$RetainResponse.class
+com\example\jvmtuning\service\WorkloadService.class
+com\example\jvmtuning\service\WorkloadService$AllocationResponse.class
+com\example\jvmtuning\service\WorkloadService$PrimeResponse.class
+com\example\jvmtuning\service\WorkloadService$SortResponse.class
+com\example\jvmtuning\service\WorkloadService$MemoryState.class
+com\example\jvmtuning\controller\WorkloadController.class
+com\example\jvmtuning\JvmTuningDemoApplication.class
