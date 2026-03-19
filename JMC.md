@@ -1,4 +1,4 @@
-# Jdk Mission Control (JMC)
+# Jdk Mission COntroll
 
 ` JMC is use for trace JVM latency spikes, GC pauses, high CPU, OOM, and poor throughput.
    This is open-source tool.`
@@ -56,6 +56,37 @@
      JDK 17 (Linux/macOS)	 JMC 9.1.x
      JDK 21	                 JMC 9.1.x
 
+
+## Analyze the JFR in JMC (step-by-step)
+Open JMC </br>
+Open JMC → “File” → “Open File…” → select recording.jfr </br>
+
+The 4 beginner tabs to focus on </br>
+Different JMC versions name tabs slightly differently, but look for: </br>
+1.	CPU / Method Profiling
+ - o	Goal: find which methods consume CPU time
+ - o	Red flags: </br>
+      - high CPU in JSON serialization, logging, regex, or unnecessary work </br>
+2.	Memory / Allocation
+ - o	Goal: see what allocates the most objects/bytes
+ - o	Red flags: </br>
+   - extremely high allocation rate (creates GC pressure)
+   - lots of byte[], char[], String, or repeated temporary objects </br>
+3.	Garbage Collections
+ - o	Goal: see GC pause times and frequency
+ - o	Red flags: </br>
+   - frequent pauses
+   - pauses that correlate with slow JMeter latency spikes
+4.	Threads / Locks (Java Monitor Blocked / Contention)
+ - o	Goal: see if threads are waiting on locks
+ - o	Red flags: </br>
+   -	many threads blocked
+   -	slowdowns while CPU is not maxed (often contention) </br>
+   
+Simple interpretation rule:
+ - •	If latency is high and CPU is high → you’re CPU-bound (optimize code, reduce work)
+ - •	If latency is high and GC pauses are frequent/long → memory/GC-bound (reduce allocations or adjust heap/GC)
+ - •	If latency is high and threads are blocked → contention/bottleneck (locks, DB pool, thread pool, synchronized code)
 
 
 
