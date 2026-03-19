@@ -288,7 +288,21 @@ jcmd 12345 JFR.dump name=demo filename=demo-recording.jfr
 
 ---
 
-## 10) What to observe in Grafana
+## 10) jms_exporter for Grafana dashboard to measure:
+- **GC pauses**
+- **Heap usage patterns**
+- **Allocation pressure**
+
+Download: jmx_prometheus_javaagent-1.5.0.jar
+    https://github.com/prometheus/jmx_exporter/releases
+
+ jvm-tuning/monitoring/jmx-exporter   
+   - jmeter-jmx-config.yaml
+   - jmx_prometheus_javaagent-1.5.0.jar
+ 
+---
+
+## 11) What to observe in Grafana
 
 Look at these panels:
 
@@ -308,7 +322,7 @@ Look at these panels:
 
 ---
 
-## 11) Beginner tuning experiments
+## 12) Beginner tuning experiments
 
 Try one change at a time.
 
@@ -366,7 +380,7 @@ curl -X DELETE "http://localhost:8080/api/memory/retain"
 
 ---
 
-## 12) A safe beginner tuning workflow
+## 13) A safe beginner tuning workflow
 
 1. **Measure first** using metrics and JFR.
 2. **Change one JVM option only.**
@@ -378,7 +392,7 @@ Do not tune many JVM flags at once. For beginners, heap size and GC behavior giv
 
 ---
 
-## 13) Good first Prometheus queries
+## 14) Good first Prometheus queries
 
 ### Request rate
 
@@ -412,7 +426,7 @@ demo_retained_memory_bytes{application="jvm-tuning"}
 
 ---
 
-## 14) Common beginner mistakes
+## 15) Common beginner mistakes
 
 - Looking only at CPU and ignoring latency
 - Changing many JVM flags together
@@ -423,7 +437,7 @@ demo_retained_memory_bytes{application="jvm-tuning"}
 
 ---
 
-## 15) Next things to learn after this demo
+## 16) Next things to learn after this demo
 
 - Thread dumps with `jcmd`
 - Heap dumps for leak analysis
@@ -433,7 +447,7 @@ demo_retained_memory_bytes{application="jvm-tuning"}
 
 ---
 
-## 16) Clean up
+## 17) Clean up
 
 Stop application with `Ctrl+C`.
 
@@ -445,7 +459,7 @@ docker compose down
 
 ---
 
-## 17) Quick start recap
+## 18) Quick start recap
 
 ```bash
 mvn clean package
